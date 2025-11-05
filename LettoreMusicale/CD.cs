@@ -11,37 +11,50 @@ namespace LettoreMusicale
         private string _Titolo;
         private string _Autore;
         private List<string> _ListaBrani;
+        private int _Durata;
 
-        public CD(string titolo, string autore, List<string> listaBrani)
+        public CD(string titolo, string autore, List<string> listaBrani, int durata)
         {
             _Titolo = titolo;
             _Autore = autore;
             _ListaBrani = listaBrani;
-        }
-
-        public string GetTitolo()
-        {
-            return _Titolo;
-        }
-
-        public string GetAutore()
-        {
-            return _Autore;
-        }
-
-        public void SetTitolo(string titolo) 
-        {
-            _Titolo = titolo;
-        }
-
-        public void SetAutore(string autore) 
-        {
-            _Autore = autore;
-        }
-
-        public override string ToString() 
-        {
+            _Durata = durata;
             
         }
+
+        public string Titolo 
+        {  get { return _Titolo; }
+           set { _Titolo = value;}
+        }
+        public string Autore
+        {
+            get { return _Autore; }
+            set { _Autore = value; }
+        }
+
+        public int Durata 
+        {
+            get { return _Durata; }
+            set { _Durata = value; }
+        }
+
+        public int SommaDurata(int durata) 
+        {
+            _Durata += durata;
+            return _Durata;
+        }
+
+        public List<string> toString() 
+        {
+            string specificheBrano;
+
+            specificheBrano = "Titolo brano: " + Titolo +" Autore del brano"+ Autore;
+
+            _ListaBrani.Add(specificheBrano);
+            
+            return _ListaBrani;
+        }
+
+
     }
 }
